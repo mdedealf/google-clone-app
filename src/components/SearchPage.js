@@ -1,12 +1,18 @@
-import React from 'react'
-import './SearchPage.css'
+import React from 'react';
+import './SearchPage.css';
+import { useStateValue } from '../StateProvider';
 
 function SearchPage() {
+	const [ { term }, dispatch ] = useStateValue();
+
     return (
-        <div className="app">
-            <h1>This is search page</h1>
-        </div>
-    )
+		<div className="searchPage">
+			<div className="searchPage__header">
+				<h1>{term}</h1>
+			</div>
+			<div className="searchPage__result" />
+		</div>
+	);
 }
 
-export default SearchPage
+export default SearchPage;
