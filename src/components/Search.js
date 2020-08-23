@@ -8,13 +8,14 @@ function Search() {
 	const [ input, setInput ] = useState('');
 
 	const search = (e) => {
-		e.preventDefault();
+        e.preventDefault();
+        console.log('Input', input)
 	};
 
 	return (
-		<div className="search">
+		<form className="search">
 			<div className="search__input">
-				<SearchIcon className="search__inputIcon" />
+				<SearchIcon type='submit' onClick={search} className="search__inputIcon" />
 				<input
 					value={input}
 					onChange={(e) => setInput(e.target.value)}
@@ -24,12 +25,12 @@ function Search() {
 				<MicIcon />
 			</div>
 			<div className="search__buttons">
-				<Button onClick={search} variant="outlined">
+				<Button type='submit' onClick={search} variant="outlined">
 					Google Search
 				</Button>
 				<Button variant="outlined">I'm Feeling Lucky</Button>
 			</div>
-		</div>
+		</form>
 	);
 }
 
